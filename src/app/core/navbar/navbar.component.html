@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a routerLink="customers"> @Customers @</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="customers/add"> Add new customer   @</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="contracts"> Contracts </a>
+      </li>
+    </ul>
+    <form class="navbar-form navbar-right">
+      <button type="button" class="btn btn-default" (click)="authService.login()" *ngIf="!authService.isLogged">Log in</button>
+      <button type="button" class="btn btn-default" (click)="authService.logout()" *ngIf="authService.isLogged">Log out</button>
+    </form>
+  </div>
+</nav>

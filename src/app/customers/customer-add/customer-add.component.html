@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+  <h3>Add customer </h3>
+  <div class="panel-body">
+    <form #customerForm="ngForm" (ngSubmit)="add(customerForm)">
+      <div class="form-group">
+        <label for="name">Customer name</label>
+        <input required type="text" class="form-control" id="name" [(ngModel)]="name" name="name" #nameInput #nameModel="ngModel"
+        />
+        <div class="alert alert-danger" *ngIf="nameModel.invalid && nameModel.touched">
+          Customer name is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input required type="number" class="form-control" id="age" [(ngModel)]="age" name="age" #ageModel="ngModel" />
+        <div class="alert alert-danger" *ngIf="ageModel.invalid && ageModel.touched">
+          Age is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="type">Type</label>
+        <select required class="form-control" [(ngModel)]="type" name="type" #typeModel="ngModel">
+          <option [value]="CustomerType.Standard">Standard</option>
+          <option [value]="CustomerType.Premium">Premium</option>
+          <option [value]="CustomerType.VIP">VIP</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="typeModel.invalid && typeModel.touched">
+          Customer type is required
+        </div>
+      </div>
+      <button type="button" class="btn btn-default" [disabled]="!customerForm.dirty" (click)="customerForm.resetForm()">Reset</button>
+      <button type="submit" class="btn btn-success" [disabled]="!customerForm.form.valid">Add</button>
+    </form>
+  </div>
+</div>

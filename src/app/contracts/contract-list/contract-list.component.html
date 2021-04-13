@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+    <h3>Contracts</h3>
+    <div class="panel-body">
+  
+      <table class="table">
+        <thead>
+          <tr>
+            <th appHighlight>Customer name</th>
+            <th>Date of conclusion</th>
+            <th>Amount</th>
+            <th>Info</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let contract of contracts">
+            <td>{{ contract.customerName }}</td>
+            <td>{{ contract.date | date: 'dd-MM-yyyy' }}</td>
+            <td>{{ contract.value }} EUR </td>
+            <td><a routerLink="{{ contract.id }}">Abstract</a></td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
+  </div>
